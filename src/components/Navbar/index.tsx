@@ -1,21 +1,30 @@
-import { ReactElement, useEffect, useRef } from 'react'
+import { ReactElement, useEffect, useRef, useState } from 'react'
 import Container from '../Container'
 import viteLogo from '/vite.svg'
+import { Link } from 'react-router-dom'
 
 const Navbar = (): ReactElement => {
-  const ref = useRef<HTMLElement>(null)
+  const ref                 = useRef<HTMLElement>(null)
+  const [height, setHeight] = useState<number | undefined>()
   
   useEffect(() => {
-    const height = ref.current?.offsetHeight
-    
-    if (typeof document !== 'undefined' && document.body) {
-      document.body.style.setProperty('padding-top', `${height}px`)
+    if (ref?.current) {
+      const resizeObserver = new ResizeObserver(() => {
+        setHeight(ref.current?.offsetHeight)
+      })
 
-      return () => {
-        document.body.style.removeProperty('padding-top')
+      resizeObserver.observe(ref.current)
+      
+      if (typeof document !== 'undefined' && document.body) {
+        document.body.style.setProperty('padding-top', `${height}px`)
+  
+        return () => {
+          document.body.style.removeProperty('padding-top')
+          resizeObserver.disconnect()
+        }
       }
     }
-  }, [])
+  }, [height])
 
   return (
     <nav
@@ -23,9 +32,9 @@ const Navbar = (): ReactElement => {
       ref={ref}>
       <Container>
         <div className="flex items-center space-x-2">
-          <a href="/">
+          <Link to="/">
             <img src={viteLogo} className="logo" alt="Vite logo" />
-          </a>
+          </Link>
           <h6 className="font-medium line-clamp-1">
             React Movie List
           </h6>

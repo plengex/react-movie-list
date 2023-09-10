@@ -7,7 +7,7 @@ const Router = (): ReactElement => {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<List/>} />
-        <Route path="detail/:id" element={<Detail/>} />
+        <Route path="/detail/:id" element={<Detail/>} />
       </Routes>
     </BrowserRouter>
   )
