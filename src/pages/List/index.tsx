@@ -59,7 +59,7 @@ const List = (): ReactElement => {
         {hasNextPage && (
           <div className="text-center p-4">
             <button
-              className="p-2.5 shadow"
+              className="p-2.5 shadow-md rounded border border-gray-300"
               disabled={isFetchingNextPage}
               onClick={() => fetchNextPage()}>
               Load more..

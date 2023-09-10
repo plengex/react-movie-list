@@ -1,3 +1,4 @@
+import moment from 'moment'
 import { ReactElement } from 'react'
 import { Link } from 'react-router-dom'
 
@@ -23,7 +24,7 @@ const Card = (props: CardProps): ReactElement => {
           </Link>
         </h6>
         <span className="">
-          {props.release_date}
+          {moment(props.release_date).format('DD/MM/YYYY')}
         </span>
       </div>
     </div>
