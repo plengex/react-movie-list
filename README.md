@@ -1,27 +1,23 @@
-# React + TypeScript + Vite
+# React Movie List
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple web app that can display a list of movies and display the details, which are taken from [The Movie Database (TMDB) API](https://developer.themoviedb.org/docs).
+Built on React + Vite + Typescript.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
+- Movie list: displays a list of movies
+- Details page: displays details of the selected movie and displays a list of related movie recommendations
 If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
 
-- Configure the top-level `parserOptions` property like this:
+## How to Run
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
+- Get your API key on [The Movie Database (TMDB) API](https://developer.themoviedb.org/docs)
+- Copy `.env.example` to `.env`
+- Replace `VITE_API_KEY = <your_access_token_auth>` with your own API key
+- Install dependencies with command `yarn install`
+- Run development server with `yarn dev`
+- Development server should be running on `http://localhost:3000/`
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+## Requirement
+
+- Node v18 or later
